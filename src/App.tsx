@@ -1,15 +1,15 @@
 import { useState, useEffect, MouseEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Utensils, 
-  Cake, 
-  Calendar, 
-  MessageSquare, 
-  MapPin, 
-  Clock, 
-  Phone, 
-  Instagram, 
-  Facebook, 
+import {
+  Utensils,
+  Cake,
+  Calendar,
+  MessageSquare,
+  MapPin,
+  Clock,
+  Phone,
+  Instagram,
+  Facebook,
   ChevronRight,
   Star,
   Menu as MenuIcon,
@@ -77,7 +77,7 @@ const Navbar = () => {
     e.preventDefault();
     const targetId = href.replace('#', '');
     const element = targetId ? document.getElementById(targetId) : document.body;
-    
+
     if (element) {
       const offset = 80; // Navbar height offset
       const bodyRect = document.body.getBoundingClientRect().top;
@@ -103,9 +103,9 @@ const Navbar = () => {
         {/* Desktop Nav */}
         <div className="hidden md:flex space-x-8">
           {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href} 
+            <a
+              key={link.name}
+              href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
               className="text-sm uppercase tracking-widest hover:text-cafe-gold transition-colors duration-300 cursor-pointer"
             >
@@ -115,7 +115,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button 
+        <button
           className="md:hidden text-cafe-cream"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -126,7 +126,7 @@ const Navbar = () => {
       {/* Mobile Nav */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -134,9 +134,9 @@ const Navbar = () => {
           >
             <div className="flex flex-col space-y-6 items-center">
               {navLinks.map((link) => (
-                <a 
-                  key={link.name} 
-                  href={link.href} 
+                <a
+                  key={link.name}
+                  href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
                   className="text-lg uppercase tracking-widest hover:text-cafe-gold transition-colors duration-300 cursor-pointer"
                 >
@@ -153,14 +153,14 @@ const Navbar = () => {
 
 const SectionHeading = ({ title, subtitle }: { title: string, subtitle?: string }) => (
   <div className="text-center mb-16">
-    <motion.span 
+    <motion.span
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       className="text-cafe-gold uppercase tracking-[0.3em] text-xs font-semibold mb-4 block"
     >
       {subtitle}
     </motion.span>
-    <motion.h2 
+    <motion.h2
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       className="text-4xl md:text-5xl font-serif"
@@ -187,44 +187,44 @@ export default function App() {
       {/* Lightbox Modal */}
       <AnimatePresence>
         {selectedImageIndex !== null && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] bg-cafe-dark/95 flex items-center justify-center p-4 md:p-10"
             onClick={closeLightbox}
           >
-            <button 
+            <button
               className="absolute top-6 right-6 text-cafe-cream hover:text-cafe-gold transition-colors z-[110]"
               onClick={closeLightbox}
             >
               <X size={40} />
             </button>
 
-            <button 
+            <button
               className="absolute left-4 md:left-10 text-cafe-cream hover:text-cafe-gold transition-colors z-[110]"
               onClick={(e) => { e.stopPropagation(); prevImage(); }}
             >
               <ChevronRight size={40} className="rotate-180" />
             </button>
 
-            <button 
+            <button
               className="absolute right-4 md:right-10 text-cafe-cream hover:text-cafe-gold transition-colors z-[110]"
               onClick={(e) => { e.stopPropagation(); nextImage(); }}
             >
               <ChevronRight size={40} />
             </button>
 
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               className="relative max-w-5xl w-full h-full flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
-              <img 
-                src={GALLERY_IMAGES[selectedImageIndex]} 
-                alt="Gallery Preview" 
+              <img
+                src={GALLERY_IMAGES[selectedImageIndex]}
+                alt="Gallery Preview"
                 className="max-w-full max-h-full object-contain rounded-sm shadow-2xl"
                 referrerPolicy="no-referrer"
               />
@@ -239,9 +239,9 @@ export default function App() {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop" 
-            alt="Restaurant Dining Room" 
+          <img
+            src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop"
+            alt="Restaurant Dining Room"
             className="w-full h-full object-cover scale-105"
             referrerPolicy="no-referrer"
           />
@@ -249,7 +249,7 @@ export default function App() {
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-4xl">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -257,24 +257,24 @@ export default function App() {
           >
             Fine Dining Since 2014
           </motion.span>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
             className="text-6xl md:text-8xl font-serif mb-8 leading-tight"
           >
-            A Symphony of <br /> 
+            A Symphony of <br />
             <span className="italic text-cafe-gold">Culinary Excellence</span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
             className="text-cafe-cream/80 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed"
           >
-            Indulge in an exquisite journey of flavors, where traditional techniques meet modern innovation in a warm, dark-wood sanctuary.
+            Indulge in an exquisite journey of flavors, where traditional techniques meet modern innovation in a warm, dark-wood sanctuary. Experience the magic of L'Ambiance.
           </motion.p>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
@@ -289,7 +289,7 @@ export default function App() {
           </motion.div>
         </div>
 
-        <motion.div 
+        <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 text-cafe-gold/50"
@@ -309,14 +309,13 @@ export default function App() {
               <button
                 key={tab}
                 onClick={() => setActiveMenuTab(tab)}
-                className={`relative pb-2 text-sm uppercase tracking-[0.2em] transition-all duration-300 ${
-                  activeMenuTab === tab ? 'text-cafe-gold' : 'text-cafe-cream/40 hover:text-cafe-cream'
-                }`}
+                className={`relative pb-2 text-sm uppercase tracking-[0.2em] transition-all duration-300 ${activeMenuTab === tab ? 'text-cafe-gold' : 'text-cafe-cream/40 hover:text-cafe-cream'
+                  }`}
               >
                 {tab}
                 {activeMenuTab === tab && (
-                  <motion.div 
-                    layoutId="activeTab" 
+                  <motion.div
+                    layoutId="activeTab"
                     className="absolute bottom-0 left-0 w-full h-px bg-cafe-gold"
                   />
                 )}
@@ -328,7 +327,7 @@ export default function App() {
           <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
             <AnimatePresence mode="wait">
               {MENU_DATA.filter(item => item.category === activeMenuTab).map((item, idx) => (
-                <motion.div 
+                <motion.div
                   key={item.name}
                   initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -353,18 +352,18 @@ export default function App() {
       <section id="gallery" className="py-24 bg-cafe-wood/20">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading title="Visual Journey" subtitle="The Ambiance" />
-          
+
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
             {GALLERY_IMAGES.map((img, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 whileHover={{ scale: 1.02 }}
                 onClick={() => openLightbox(idx)}
                 className={`relative overflow-hidden rounded-sm aspect-square cursor-pointer group ${idx === 1 ? 'md:col-span-2 md:aspect-auto' : ''}`}
               >
-                <img 
-                  src={img} 
-                  alt={`Gallery ${idx}`} 
+                <img
+                  src={img}
+                  alt={`Gallery ${idx}`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />
@@ -383,7 +382,7 @@ export default function App() {
       <section id="events" className="py-24 bg-cafe-dark overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -393,7 +392,7 @@ export default function App() {
               <p className="text-cafe-cream/70 text-lg mb-10 leading-relaxed">
                 From intimate birthday celebrations to elegant family gatherings, our space provides the perfect backdrop for your most cherished memories. Our dedicated events team will ensure every detail is tailored to your vision.
               </p>
-              
+
               <ul className="space-y-6 mb-12">
                 {[
                   { icon: <Cake className="text-cafe-gold" />, title: "Birthdays & Anniversaries", desc: "Customized menus and private seating areas." },
@@ -416,16 +415,16 @@ export default function App() {
               </button>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="relative"
             >
               <div className="aspect-[4/5] rounded-sm overflow-hidden border border-cafe-gold/20 p-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop" 
-                  alt="Event Setup" 
+                <img
+                  src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop"
+                  alt="Event Setup"
                   className="w-full h-full object-cover rounded-sm"
                   referrerPolicy="no-referrer"
                 />
@@ -443,10 +442,10 @@ export default function App() {
       <section className="py-24 bg-cafe-wood/10">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading title="Guest Experiences" subtitle="Testimonials" />
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {REVIEWS.map((review, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -526,18 +525,18 @@ export default function App() {
               <h4 className="text-cafe-gold uppercase tracking-widest text-sm font-bold mb-8">Stay Connected</h4>
               <p className="text-cafe-cream/60 text-sm mb-6">Join our newsletter for exclusive offers and event updates.</p>
               <div className="flex mb-8">
-                <input 
-                  type="email" 
-                  placeholder="Your Email" 
+                <input
+                  type="email"
+                  placeholder="Your Email"
                   className="bg-cafe-wood/20 border border-cafe-gold/20 px-4 py-2 text-sm focus:outline-none focus:border-cafe-gold w-full rounded-l-sm"
                 />
                 <button className="bg-cafe-gold text-cafe-dark px-4 py-2 rounded-r-sm hover:bg-cafe-cream transition-colors duration-300">
                   <Send size={18} />
                 </button>
               </div>
-              <a 
-                href="https://wa.me/15551234567" 
-                target="_blank" 
+              <a
+                href="https://wa.me/15551234567"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center space-x-3 w-full py-3 bg-cafe-gold text-cafe-dark rounded-sm font-semibold hover:opacity-90 transition-opacity duration-300"
               >
