@@ -301,7 +301,7 @@ export default function App() {
       {/* Menu Section */}
       <section id="menu" className="py-24 bg-cafe-dark relative">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionHeading title="The Gourmet Collection" subtitle="A Curated Experience" />
+          <SectionHeading title="The Gourmette Collection" subtitle="A Curated Experience" />
 
           {/* Menu Tabs */}
           <div className="flex justify-center space-x-4 md:space-x-12 mb-16">
